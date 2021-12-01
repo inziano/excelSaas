@@ -29,7 +29,8 @@ class ProcessFile
     public function handle(FileUploaded $event)
     {
         Log::info('Listener');
-        //
+
+        // Call the cloud upload job and set it on a queue called cloud.
         CloudUploadJob::dispatch($event->upload)->onQueue('cloud');
     }
 }

@@ -2266,8 +2266,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     signIn: function signIn(e) {
       var _this = this;
 
+      // Get the path redirected from, after login succesful go back to this page
       var path = this.$route.query.from;
-      e.preventDefault();
+      e.preventDefault(); // Call the login action from the store, if succesful, redirect to new page
+
       this.login(this.credentials).then(function (response) {
         _this.fetchUploads(); // Alert
 
@@ -2597,10 +2599,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       var formdata = new FormData(); // Append title
 
-      formdata.append('title', this.title); // 
+      formdata.append('title', this.title); // Append current user id
 
       formdata.append('user_id', this.user.id);
-      formdata.append('excel', this.File);
+      formdata.append('excel', this.File); // Store upload action
+
       this.upload(formdata).then(function (response) {
         alert("success");
       })["catch"](function (error) {

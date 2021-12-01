@@ -25,7 +25,7 @@ class FileUploaded implements ShouldBroadcast
      */
     public function __construct(Upload $upload)
     {
-        //
+        // 
         $this->upload = $upload;
     }
 

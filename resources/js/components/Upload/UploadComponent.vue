@@ -98,11 +98,12 @@ export default {
             // Append title
             formdata.append('title', this.title)
 
-            // 
+            // Append current user id
             formdata.append('user_id', this.user.id)
 
             formdata.append('excel', this.File)
 
+            // Store upload action
             this.upload(formdata).then(response=>{
                 alert("success")
             }).catch(error=>{

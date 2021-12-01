@@ -41,6 +41,7 @@ class CloudUploadJob implements ShouldQueue
 
         Log::info($this->upload);
 
+        // Update the uploaded file record and set the is_processed flag to true and set the date.
         Upload::where('id', $this->upload->id)->update([
             'title' => $this->upload->title,
             'is_processed' => true,

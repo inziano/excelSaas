@@ -71,11 +71,12 @@ export default {
         ...mapActions(['login','fetchUploads']),
 
         signIn(e){
-            
+            // Get the path redirected from, after login succesful go back to this page
             let path = this.$route.query.from
 
             e.preventDefault()
 
+            // Call the login action from the store, if succesful, redirect to new page
             this.login(this.credentials).then(response=>{
 
                 this.fetchUploads()
