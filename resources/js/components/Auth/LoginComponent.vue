@@ -68,15 +68,21 @@ export default {
     },
 
     methods: {
-        ...mapActions(['login']),
+        ...mapActions(['login','fetchUploads']),
 
         signIn(e){
+            
+            let path = this.$route.query.from
 
             e.preventDefault()
 
             this.login(this.credentials).then(response=>{
+
+                this.fetchUploads()
                 // Alert
                 alert("success")
+                 // Redirect to new page
+                setTimeout(()=> this.$router.replace( path || {name: 'upload'}), 100)
             }).catch( error=>{
                 // Alert
                 alert("error")

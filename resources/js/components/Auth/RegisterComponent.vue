@@ -91,7 +91,7 @@ export default {
 
             this.register(this.details).then( response =>{
                 alert("Success")
-
+                setTimeout(()=> this.$router.push({name: 'upload'}), 100)
             }).catch( error => {
 
                 alert('Error')

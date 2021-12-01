@@ -17,10 +17,10 @@ export default new Vuex.Store({
 
     mutations: {
         LOGIN(state, user){
-            state.currentUser = user
+            state.user = user
         },
         LOAD_UPLOADS(state, uploads){
-            state.uplaods = uploads
+            state.uploads = uploads
         }
     },
 
@@ -47,7 +47,7 @@ export default new Vuex.Store({
             let response = await axios.post(`${baseURL}/uploads`, data)
         },
 
-        async fetchUploads({commit}, data){
+        async fetchUploads({commit}){
             // Get uploads
             let response = await axios.get(`${baseURL}/uploads`)
 

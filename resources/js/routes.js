@@ -50,24 +50,24 @@ let router = new Router({
     ]
 })
 
-// // Check is logged in
-// function isLoggedIn(){
-//     let loggedIn = store.state.user
+// Check is logged in
+function isLoggedIn(){
+    let loggedIn = store.state.user
 
-//     return !Object.keys(loggedIn).length == 0
-// }
+    return !Object.keys(loggedIn).length == 0
+}
 
 
-// // Handle authentication
-// router.beforeEach((to, from, next) =>{
-//     const url = to.path
+// Handle authentication
+router.beforeEach((to, from, next) =>{
+    const url = to.path
 
-//     console.log(url)
-//     // check if user is authenticated
-//     if( to.matched.some(record => record.meta.requiresAuth) && !isLoggedIn()) next({name: 'login', query: {from: to}})
-//     // Proceed to route
-//     else next()
+    console.log(url)
+    // check if user is authenticated
+    if( to.matched.some(record => record.meta.requiresAuth) && !isLoggedIn()) next({name: 'login', query: {from: to}})
+    // Proceed to route
+    else next()
   
-// })
+})
 
 export default router
