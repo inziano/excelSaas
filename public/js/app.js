@@ -2262,12 +2262,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     };
   },
-  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(['login'])), {}, {
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(['login', 'fetchUploads'])), {}, {
     signIn: function signIn(e) {
+      var _this = this;
+
+      var path = this.$route.query.from;
       e.preventDefault();
       this.login(this.credentials).then(function (response) {
-        // Alert
-        alert("success");
+        _this.fetchUploads(); // Alert
+
+
+        alert("success"); // Redirect to new page
+
+        setTimeout(function () {
+          return _this.$router.replace(path || {
+            name: 'upload'
+          });
+        }, 100);
       })["catch"](function (error) {
         // Alert
         alert("error");
@@ -2379,9 +2390,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(['register'])), {}, {
     save: function save(e) {
+      var _this = this;
+
       e.preventDefault();
       this.register(this.details).then(function (response) {
         alert("Success");
+        setTimeout(function () {
+          return _this.$router.push({
+            name: 'upload'
+          });
+        }, 100);
       })["catch"](function (error) {
         alert('Error');
       });
@@ -2478,9 +2496,119 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Upload/UploadComponent.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\resources\\js\\components\\Upload\\UploadComponent.vue: Missing semicolon. (51:50)\n\n\u001b[0m \u001b[90m 49 |\u001b[39m         uploadDocument(e){\u001b[0m\n\u001b[0m \u001b[90m 50 |\u001b[39m             \u001b[90m// Check file size, chun \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 51 |\u001b[39m             \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39m$emit(\u001b[32m'input'\u001b[39m\u001b[33m,\u001b[39m e\u001b[33m.\u001b[39mtarget\u001b[33m.\u001b[39mfiles[\u001b[35m0\u001b[39m])\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mfile \u001b[33m=\u001b[39m e\u001b[33m.\u001b[39mfiles[\u001b[35m0\u001b[39m]\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 52 |\u001b[39m             \u001b[0m\n\u001b[0m \u001b[90m 53 |\u001b[39m         }\u001b[0m\n\u001b[0m \u001b[90m 54 |\u001b[39m     }\u001b[0m\n    at Parser._raise (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:541:17)\n    at Parser.raiseWithData (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:534:17)\n    at Parser.raise (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:495:17)\n    at Parser.semicolon (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:3550:10)\n    at Parser.parseExpressionStatement (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:13899:10)\n    at Parser.parseStatementContent (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:13490:19)\n    at Parser.parseStatement (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:13352:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:13941:25)\n    at Parser.parseBlockBody (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:13932:10)\n    at Parser.parseBlock (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:13916:10)\n    at Parser.parseFunctionBody (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:12786:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:12770:10)\n    at Parser.parseMethod (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:12720:10)\n    at Parser.parseObjectMethod (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:12614:19)\n    at Parser.parseObjPropValue (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:12647:23)\n    at Parser.parsePropertyDefinition (C:\\Users\\JKivisi\\OneDrive - CGIAR\\Documents\\projects\\excel\\node_modules\\@babel\\parser\\lib\\index.js:12571:10)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      title: '',
+      File: ''
+    };
+  },
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)(['user'])),
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(['upload'])), {}, {
+    dragFile: function dragFile(e) {
+      this.File = e.dataTransfer.files;
+    },
+    uploadDocument: function uploadDocument(e) {
+      // Check file size, chunk uplaods 
+      this.File = e.target.files[0];
+      console.log(this.File);
+    },
+    submit: function submit(e) {
+      e.preventDefault(); // Build formdata
+
+      var formdata = new FormData(); // Append title
+
+      formdata.append('title', this.title); // 
+
+      formdata.append('user_id', this.user.id);
+      formdata.append('excel', this.File);
+      this.upload(formdata).then(function (response) {
+        alert("success");
+      })["catch"](function (error) {
+        alert("Error");
+      });
+    }
+  })
+});
 
 /***/ }),
 
@@ -2495,6 +2623,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2570,16 +2705,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {};
   },
-  methods: {}
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapState)(['uploads'])), {}, {
+    myuploads: function myuploads() {
+      return this.uploads.data;
+    }
+  }),
+  mounted: function mounted() {
+    this.fetchUploads();
+  },
+  methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(['fetchUploads']))
 });
 
 /***/ }),
@@ -2709,21 +2848,28 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_7__["default"]({
     component: _components_LostComponent__WEBPACK_IMPORTED_MODULE_5__["default"],
     name: 'Lost'
   }]
-}); // // Check is logged in
-// function isLoggedIn(){
-//     let loggedIn = store.state.user
-//     return !Object.keys(loggedIn).length == 0
-// }
-// // Handle authentication
-// router.beforeEach((to, from, next) =>{
-//     const url = to.path
-//     console.log(url)
-//     // check if user is authenticated
-//     if( to.matched.some(record => record.meta.requiresAuth) && !isLoggedIn()) next({name: 'login', query: {from: to}})
-//     // Proceed to route
-//     else next()
-// })
+}); // Check is logged in
 
+function isLoggedIn() {
+  var loggedIn = _store__WEBPACK_IMPORTED_MODULE_6__["default"].state.user;
+  return !Object.keys(loggedIn).length == 0;
+} // Handle authentication
+
+
+router.beforeEach(function (to, from, next) {
+  var url = to.path;
+  console.log(url); // check if user is authenticated
+
+  if (to.matched.some(function (record) {
+    return record.meta.requiresAuth;
+  }) && !isLoggedIn()) next({
+    name: 'login',
+    query: {
+      from: to
+    }
+  }); // Proceed to route
+  else next();
+});
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
 /***/ }),
@@ -2764,10 +2910,10 @@ var baseURL = "http://localhost:8000/api";
   },
   mutations: {
     LOGIN: function LOGIN(state, user) {
-      state.currentUser = user;
+      state.user = user;
     },
     LOAD_UPLOADS: function LOAD_UPLOADS(state, uploads) {
-      state.uplaods = uploads;
+      state.uploads = uploads;
     }
   },
   actions: {
@@ -2844,7 +2990,7 @@ var baseURL = "http://localhost:8000/api";
         }, _callee3);
       }))();
     },
-    fetchUploads: function fetchUploads(_ref4, data) {
+    fetchUploads: function fetchUploads(_ref4) {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
         var commit, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
@@ -5423,11 +5569,210 @@ var render = function () {
               }),
             ]),
             _vm._v(" "),
-            _vm._m(0),
+            _c("div", { staticClass: "grid grid-cols-1 space-y-2" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "text-sm font-bold text-gray-500 tracking-wide",
+                },
+                [_vm._v("Attach Document")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "flex items-center justify-center w-full",
+                  on: {
+                    dragover: function ($event) {
+                      $event.preventDefault()
+                    },
+                    drop: function ($event) {
+                      $event.preventDefault()
+                    },
+                  },
+                },
+                [
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center",
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "h-full w-full text-center flex flex-col items-center justify-center items-center  ",
+                        },
+                        [
+                          _vm._m(0),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            { staticClass: "pointer-none text-gray-500 " },
+                            [
+                              _c("span", { staticClass: "text-sm" }, [
+                                _vm._v("Drag and drop"),
+                              ]),
+                              _vm._v(" files here "),
+                              _c("br"),
+                              _vm._v(" or "),
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "text-blue-600 hover:underline",
+                                  on: {
+                                    click: function ($event) {
+                                      return this.$refs.file.click()
+                                    },
+                                  },
+                                },
+                                [_vm._v("select a file")]
+                              ),
+                              _vm._v(" from your computer"),
+                            ]
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        ref: "file",
+                        staticClass: "hidden",
+                        attrs: { type: "file", accept: ".xls, .xlsx" },
+                        on: { change: _vm.uploadDocument },
+                      }),
+                    ]
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _vm.File
+                ? _c(
+                    "div",
+                    { staticClass: "w-full border-2 border-gray-100" },
+                    [
+                      _c("li", { staticClass: "block p-1 w-1/2 h-24" }, [
+                        _c(
+                          "article",
+                          {
+                            staticClass:
+                              "group w-full h-full rounded-md focus:outline-none focus:shadow-outline elative bg-gray-100 cursor-pointer relative shadow-sm",
+                            attrs: { tabindex: "0" },
+                          },
+                          [
+                            _c("img", {
+                              staticClass:
+                                "img-preview hidden w-full h-full sticky object-cover rounded-md bg-fixed",
+                              attrs: { alt: "upload preview" },
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "section",
+                              {
+                                staticClass:
+                                  "flex flex-col rounded-md text-xs break-words w-full h-full z-20 absolute top-0 py-2 px-3",
+                              },
+                              [
+                                _c("h1", {
+                                  staticClass:
+                                    "flex-1 group-hover:text-blue-800",
+                                }),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "flex" }, [
+                                  _c(
+                                    "span",
+                                    { staticClass: "p-1 text-blue-800" },
+                                    [
+                                      _c("i", [
+                                        _c(
+                                          "svg",
+                                          {
+                                            staticClass:
+                                              "fill-current w-4 h-4 ml-auto pt-1",
+                                            attrs: {
+                                              xmlns:
+                                                "http://www.w3.org/2000/svg",
+                                              width: "24",
+                                              height: "24",
+                                              viewBox: "0 0 24 24",
+                                            },
+                                          },
+                                          [
+                                            _c("path", {
+                                              attrs: {
+                                                d: "M15 2v5h5v15h-16v-20h11zm1-2h-14v24h20v-18l-6-6z",
+                                              },
+                                            }),
+                                          ]
+                                        ),
+                                      ]),
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "p-1 size text-xs text-gray-700",
+                                    },
+                                    [_vm._v(_vm._s(_vm.File.name))]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "delete ml-auto focus:outline-none hover:bg-gray-300 p-1 rounded-md text-gray-800",
+                                    },
+                                    [
+                                      _c(
+                                        "svg",
+                                        {
+                                          staticClass:
+                                            "pointer-events-none fill-current w-4 h-4 ml-auto",
+                                          attrs: {
+                                            xmlns: "http://www.w3.org/2000/svg",
+                                            width: "24",
+                                            height: "24",
+                                            viewBox: "0 0 24 24",
+                                          },
+                                        },
+                                        [
+                                          _c("path", {
+                                            staticClass: "pointer-events-none",
+                                            attrs: {
+                                              d: "M3 6l3 18h12l3-18h-18zm19-4v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.316c0 .901.73 2 1.631 2h5.711z",
+                                            },
+                                          }),
+                                        ]
+                                      ),
+                                    ]
+                                  ),
+                                ]),
+                              ]
+                            ),
+                          ]
+                        ),
+                      ]),
+                    ]
+                  )
+                : _vm._e(),
+            ]),
             _vm._v(" "),
             _vm._m(1),
             _vm._v(" "),
-            _vm._m(2),
+            _c("div", [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ",
+                  on: { click: _vm.submit },
+                },
+                [_vm._v("\n                Upload\n            ")]
+              ),
+            ]),
           ]),
         ]
       ),
@@ -5439,66 +5784,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "grid grid-cols-1 space-y-2" }, [
-      _c(
-        "label",
-        { staticClass: "text-sm font-bold text-gray-500 tracking-wide" },
-        [_vm._v("Attach Document")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex items-center justify-center w-full" }, [
-        _c(
-          "label",
-          {
-            staticClass:
-              "flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center",
+    return _c(
+      "div",
+      { staticClass: "flex flex-auto max-h-48 w-2/5 mx-auto -mt-10" },
+      [
+        _c("img", {
+          staticClass: "has-mask h-36 object-center",
+          attrs: {
+            src: "https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg",
+            alt: "freepik image",
           },
-          [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "h-full w-full text-center flex flex-col items-center justify-center items-center  ",
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "flex flex-auto max-h-48 w-2/5 mx-auto -mt-10",
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "has-mask h-36 object-center",
-                      attrs: {
-                        src: "https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg",
-                        alt: "freepik image",
-                      },
-                    }),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "pointer-none text-gray-500 " }, [
-                  _c("span", { staticClass: "text-sm" }, [
-                    _vm._v("Drag and drop"),
-                  ]),
-                  _vm._v(" files here "),
-                  _c("br"),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "opacity-0",
-              attrs: {
-                type: "file",
-                accept: ".xls, .xlsx",
-                onchange: "uploadDocument(this)",
-              },
-            }),
-          ]
-        ),
-      ]),
-    ])
+        }),
+      ]
+    )
   },
   function () {
     var _vm = this
@@ -5506,22 +5804,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "text-sm text-gray-300" }, [
       _c("span", [_vm._v("File type: xlsx")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "button",
-        {
-          staticClass:
-            "py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ",
-          attrs: { type: "submit" },
-        },
-        [_vm._v("\n                Upload\n            ")]
-      ),
     ])
   },
 ]
@@ -5547,7 +5829,163 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      staticClass:
+        "w-full mx-auto flex flex-col px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10",
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-full" }, [
+        _c("div", { staticClass: "container mx-auto px-4 sm:px-8" }, [
+          _c("div", { staticClass: "py-8" }, [
+            _c(
+              "div",
+              {
+                staticClass: "-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto",
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "inline-block min-w-full shadow rounded-lg overflow-hidden",
+                  },
+                  [
+                    _c("table", { staticClass: "min-w-full leading-normal" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.myuploads, function (upload) {
+                          return _c("tr", { key: upload.id }, [
+                            _c(
+                              "td",
+                              {
+                                staticClass:
+                                  "px-5 py-5 border-b border-gray-200 bg-white text-sm",
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "flex items-center" },
+                                  [
+                                    _c("div", { staticClass: "ml-3" }, [
+                                      _c(
+                                        "p",
+                                        {
+                                          staticClass:
+                                            "text-gray-900 whitespace-no-wrap",
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                                    " +
+                                              _vm._s(upload.title) +
+                                              "\n                                                "
+                                          ),
+                                        ]
+                                      ),
+                                    ]),
+                                  ]
+                                ),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticClass:
+                                  "px-5 py-5 border-b border-gray-200 bg-white text-sm",
+                              },
+                              [
+                                _c(
+                                  "p",
+                                  {
+                                    staticClass:
+                                      "text-gray-900 whitespace-no-wrap",
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(upload.file_path) +
+                                        "\n                                        "
+                                    ),
+                                  ]
+                                ),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticClass:
+                                  "px-5 py-5 border-b border-gray-200 bg-white text-sm",
+                              },
+                              [
+                                _c(
+                                  "p",
+                                  {
+                                    staticClass:
+                                      "text-gray-900 whitespace-no-wrap",
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                            " +
+                                        _vm._s(upload.processed_date) +
+                                        "\n                                        "
+                                    ),
+                                  ]
+                                ),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticClass:
+                                  "px-5 py-5 border-b border-gray-200 bg-white text-sm",
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  {
+                                    staticClass:
+                                      "relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight",
+                                  },
+                                  [
+                                    _c("span", {
+                                      staticClass:
+                                        "absolute inset-0 bg-green-200 opacity-50 rounded-full",
+                                      attrs: { "aria-hidden": "true" },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("span", { staticClass: "relative" }, [
+                                      _vm._v(
+                                        "\n                                               " +
+                                          _vm._s(upload.isProcessed) +
+                                          "\n                                            "
+                                      ),
+                                    ]),
+                                  ]
+                                ),
+                              ]
+                            ),
+                          ])
+                        }),
+                        0
+                      ),
+                    ]),
+                  ]
+                ),
+              ]
+            ),
+          ]),
+        ]),
+      ]),
+    ]
+  )
 }
 var staticRenderFns = [
   function () {
@@ -5556,240 +5994,74 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass:
-          "w-full mx-auto flex flex-col px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10",
-      },
+      { staticClass: "sm:max-w-lg w-full p-10 bg-white rounded-xl z-10" },
       [
         _c(
           "div",
-          { staticClass: "sm:max-w-lg w-full p-10 bg-white rounded-xl z-10" },
+          {
+            staticClass:
+              "self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-white",
+          },
+          [_vm._v("\n            Your Files\n        ")]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c(
+          "th",
+          {
+            staticClass:
+              "px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal",
+            attrs: { scope: "col" },
+          },
           [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-white",
-              },
-              [_vm._v("\n            Your Files\n        ")]
+            _vm._v(
+              "\n                                        Name\n                                    "
             ),
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "w-full" }, [
-          _c("div", { staticClass: "container mx-auto px-4 sm:px-8" }, [
-            _c("div", { staticClass: "py-8" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto",
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "inline-block min-w-full shadow rounded-lg overflow-hidden",
-                    },
-                    [
-                      _c(
-                        "table",
-                        { staticClass: "min-w-full leading-normal" },
-                        [
-                          _c("thead", [
-                            _c("tr", [
-                              _c(
-                                "th",
-                                {
-                                  staticClass:
-                                    "px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal",
-                                  attrs: { scope: "col" },
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                        Name\n                                    "
-                                  ),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "th",
-                                {
-                                  staticClass:
-                                    "px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal",
-                                  attrs: { scope: "col" },
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                        Is_Processed\n                                    "
-                                  ),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "th",
-                                {
-                                  staticClass:
-                                    "px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal",
-                                  attrs: { scope: "col" },
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                        Processed Date\n                                    "
-                                  ),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("th", {
-                                staticClass:
-                                  "px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal",
-                                attrs: { scope: "col" },
-                              }),
-                            ]),
-                          ]),
-                          _vm._v(" "),
-                          _c("tbody", [
-                            _c("tr", [
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "px-5 py-5 border-b border-gray-200 bg-white text-sm",
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "flex items-center" },
-                                    [
-                                      _c("div", { staticClass: "ml-3" }, [
-                                        _c(
-                                          "p",
-                                          {
-                                            staticClass:
-                                              "text-gray-900 whitespace-no-wrap",
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                                                    Jean marc\n                                                "
-                                            ),
-                                          ]
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "px-5 py-5 border-b border-gray-200 bg-white text-sm",
-                                },
-                                [
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "text-gray-900 whitespace-no-wrap",
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                                            Admin\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "px-5 py-5 border-b border-gray-200 bg-white text-sm",
-                                },
-                                [
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "text-gray-900 whitespace-no-wrap",
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                                            12/09/2020\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "px-5 py-5 border-b border-gray-200 bg-white text-sm",
-                                },
-                                [
-                                  _c(
-                                    "span",
-                                    {
-                                      staticClass:
-                                        "relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight",
-                                    },
-                                    [
-                                      _c("span", {
-                                        staticClass:
-                                          "absolute inset-0 bg-green-200 opacity-50 rounded-full",
-                                        attrs: { "aria-hidden": "true" },
-                                      }),
-                                      _vm._v(" "),
-                                      _c("span", { staticClass: "relative" }, [
-                                        _vm._v(
-                                          "\n                                                active\n                                            "
-                                        ),
-                                      ]),
-                                    ]
-                                  ),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "td",
-                                {
-                                  staticClass:
-                                    "px-5 py-5 border-b border-gray-200 bg-white text-sm",
-                                },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass:
-                                        "text-indigo-600 hover:text-indigo-900",
-                                      attrs: { href: "#" },
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\n                                            Edit\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                ]
-                              ),
-                            ]),
-                          ]),
-                        ]
-                      ),
-                    ]
-                  ),
-                ]
-              ),
-            ]),
-          ]),
-        ]),
-      ]
-    )
+        _c(
+          "th",
+          {
+            staticClass:
+              "px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal",
+            attrs: { scope: "col" },
+          },
+          [
+            _vm._v(
+              "\n                                       Url\n                                    "
+            ),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          {
+            staticClass:
+              "px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal",
+            attrs: { scope: "col" },
+          },
+          [
+            _vm._v(
+              "\n                                        Processed Date\n                                    "
+            ),
+          ]
+        ),
+        _vm._v(" "),
+        _c("th", {
+          staticClass:
+            "px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal",
+          attrs: { scope: "col" },
+        }),
+      ]),
+    ])
   },
 ]
 render._withStripped = true

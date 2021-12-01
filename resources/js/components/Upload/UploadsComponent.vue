@@ -19,7 +19,7 @@
                                             Name
                                         </th>
                                         <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            Is_Processed
+                                           Url
                                         </th>
                                         <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
                                             Processed Date
@@ -30,24 +30,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr v-for="upload in myuploads" :key="upload.id">
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <div class="flex items-center">
                                                 <div class="ml-3">
                                                     <p class="text-gray-900 whitespace-no-wrap">
-                                                        Jean marc
+                                                        {{upload.title}}
                                                     </p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <p class="text-gray-900 whitespace-no-wrap">
-                                                Admin
+                                                {{upload.file_path}}
                                             </p>
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <p class="text-gray-900 whitespace-no-wrap">
-                                                12/09/2020
+                                                {{upload.processed_date}}
                                             </p>
                                         </td>
                                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -55,14 +55,9 @@
                                                 <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
                                                 </span>
                                                 <span class="relative">
-                                                    active
+                                                   {{upload.isProcessed}}
                                                 </span>
                                             </span>
-                                        </td>
-                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">
-                                                Edit
-                                            </a>
                                         </td>
                                     </tr>
                                    
@@ -79,6 +74,7 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 export default {
     data(){
         return {
@@ -86,8 +82,20 @@ export default {
         }
     },
 
-    methods: {
+    computed: {
+        ...mapState(['uploads']),
 
+        myuploads(){
+            return this.uploads.data
+        }
+    },
+
+    mounted(){
+        this.fetchUploads()
+    },
+    
+    methods: {
+        ...mapActions(['fetchUploads'])
     }
 }
 </script>

@@ -10,10 +10,11 @@ class Upload extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'file_path',
+        'title',
+        'url',
         'is_processed',
-        'processed_date'
+        'processed_date',
+        'user_id'
     ];
 
     protected $dates = [

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Package;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -23,7 +25,7 @@ class AuthController extends Controller
             "password" => $request->password
         ];
 
-        dd($request->all());
+        // dd($request->all());
 
         if( Auth::attempt($credentials)) {
             // Session
@@ -46,9 +48,7 @@ class AuthController extends Controller
         ]);
 
         // Amount
-        $amount = Package::where('id',$request->package_id)->get()->pluck('amount');
-
-        dd($amount);
+        $amount = Package::where('id',$request->package_id)->first()->amount;
 
         // Validated
         try {
@@ -56,7 +56,7 @@ class AuthController extends Controller
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => $request->password
+                'password' =>  Hash::make($request->password)
             ]);
 
             // Calculate subscription based on package selected, billed for 12 months
@@ -67,8 +67,10 @@ class AuthController extends Controller
                 'start_date' => Carbon::now(),
                 'end_date' => Carbon::now()->addMonths(12),
                 'package_id' => $request->package_id,
+                'billable_amount' => $total
             ]);
 
+            return $user;
         } catch(\Exception $e){
             throw $e;
         }

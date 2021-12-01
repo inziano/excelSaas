@@ -5,8 +5,10 @@ namespace App\Listeners;
 use App\Events\FileUploaded;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Log;
+use App\Jobs\CloudUploadJob;
 
-class MoveFileToCloud
+class ProcessFile
 {
     /**
      * Create the event listener.
@@ -26,7 +28,8 @@ class MoveFileToCloud
      */
     public function handle(FileUploaded $event)
     {
+        Log::info('Listener');
         //
-        dd($event->file);
+        CloudUploadJob::dispatch($event->upload)->onQueue('cloud');
     }
 }

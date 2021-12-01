@@ -10,22 +10,23 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Upload;
 
-class FileUploaded
+class FileUploaded implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $file;
+    public $upload;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($file_url)
+    public function __construct(Upload $upload)
     {
         //
-        $this->file = Storage::get($file_url);
+        $this->upload = $upload;
     }
 
     /**
@@ -35,6 +36,6 @@ class FileUploaded
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('channel-name');
+        return new Channel('fileUpload');
     }
 }

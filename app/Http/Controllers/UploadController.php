@@ -6,7 +6,8 @@ use App\Models\Upload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Resources\Upload as UploadResource;
-
+use App\Events\FileUploaded;
+use app\Models\User;
 class UploadController extends Controller
 {
     /**
@@ -19,8 +20,7 @@ class UploadController extends Controller
 
         // Get authenticated user
         $uploads = auth()->user()->upload;
-
-        dd($uploads);
+;
         // 
         return UploadResource::collection(Upload::paginate(50));
     }
@@ -36,27 +36,33 @@ class UploadController extends Controller
         //
        $validated = $request->validate([
            'title' => 'required|unique:uploads',
-           'excel' => 'required|file'
+           'excel' => 'required|file',
+           'user_id' => 'required'
        ]);
-
-       dd($request->all());
        // Validation passes
 
+       $user = User::where('id', $request->user_id)->first()->name;
+
+
        // Upload file to local storage
-       $file_url = Storage::disk('local')->put($request->name, $request->file('excel'));
+       $file_url = Storage::cloud()->putFileAs('docs', $request->file('excel'), $request->title);
        
        // Save    
        try {
            // Save record to DB
            $record = Upload::create([
                'title' => $request->title,
+               'url' => $file_url,
+               'user_id' => $request->user_id
            ]);
 
+        //    dd($record);
+
            // Fire event to move file to AWS
-           event( new FileUploaded($file_url));
+           event( new FileUploaded($record));
 
             // return success
-            return is_null($record) ? true : $resp;
+            return is_null($record) ? true : $record;
 
        } catch( \Exception $e) {
            throw $e;

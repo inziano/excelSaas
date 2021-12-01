@@ -15,10 +15,11 @@ class Upload extends JsonResource
     public function toArray($request)
     {
         return [
-            'name' => $this->name,
+            'id' => $this->id,
+            'title' => $this->title,
             'isProcessed' => $this->is_processed,
             'processed_date' => $this->processed_date,
-            'file_path' => $this->file_path
+            'file_path' => $this->url
         ];
     }
 }
