@@ -19,6 +19,8 @@ class CreateUploadsTable extends Migration
             $table->boolean('is_processed')->nullable();
             $table->date('processed_date')->nullable();
             $table->string('url')->nullable();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
